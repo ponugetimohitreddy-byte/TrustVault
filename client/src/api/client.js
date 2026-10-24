@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// __API_URL__ is replaced at build-time by Vite's `define`:
+//   • dev  → '/api'  (Vite proxy forwards to localhost:5001)
+//   • prod → the absolute Render API URL via VITE_API_URL env var
+/* global __API_URL__ */
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: typeof __API_URL__ !== 'undefined' ? __API_URL__ : '/api',
   withCredentials: true,
 });
 
