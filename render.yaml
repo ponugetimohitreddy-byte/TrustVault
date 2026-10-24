@@ -70,7 +70,6 @@ services:
   - type: web
     name: trustvault-app
     runtime: static
-    region: oregon
     branch: deployment
     rootDir: client
     buildCommand: npm install && npm run build
