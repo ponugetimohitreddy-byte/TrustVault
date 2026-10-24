@@ -15,12 +15,7 @@ function requiredInProd(name, fallback) {
 const env = {
   nodeEnv: process.env.NODE_ENV || 'development',
   port: Number(process.env.PORT || 5001),
-  // CLIENT_ORIGIN can be a comma-separated list of allowed origins.
-  // Example: https://trustvault-app.onrender.com,https://trustvault.example.com
-  clientOrigin: (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
-    .split(',')
-    .map((o) => o.trim())
-    .filter(Boolean),
+  clientOrigin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
   mongodbUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mohit_doc_viewer',
   jwt: {
     accessSecret: requiredInProd('JWT_ACCESS_SECRET', 'dev-access-secret-change-me-32chars!!'),
