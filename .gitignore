@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.env
+*.log
+uploads/
+.DS_Store
+.vscode/
+.idea/
+client/dist/
+server/coverage/
+mongod-*.log
